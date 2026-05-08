@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="container">
+  <header class="app-header">
+    <h1>PoolChem <span class="pro-badge">PRO</span></h1>
+    <p>Professional Water Treatment Calculator</p>
+  </header>
+
+  <main class="calculator-body">
+    <section class="volume-section">
+      <div class="input-block">
+        <label for="volume">Pool Water Volume (Liters)</label>
+        <input type="number" id="volume" placeholder="Pananglitan: 50000" autofocus>
+      </div>
+    </section>
+
+    <div class="input-grid">
+      <section class="config-card cl-card">
+        <div class="card-title">Chlorine Sanitizer</div>
+        <div class="field">
+          <label>Product Strength</label>
+          <select id="clType">
+            <option value="70">70% Calcium Hypochlorite</option>
+            <option value="90">90% TCCA (Powder/Tablet)</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label>Current (ppm)</label>
+            <input type="number" id="currentCL" step="0.1" value="0.5">
+          </div>
+          <div class="field">
+            <label>Target (ppm)</label>
+            <input type="number" id="targetCL" step="0.1" value="2.0">
+          </div>
+        </div>
+      </section>
+
+      <section class="config-card ph-card">
+        <div class="card-title">pH Level Control</div>
+        <div class="field">
+          <label>Current pH Reading</label>
+          <input type="number" id="currentPH" step="0.1" value="8.0">
+        </div>
+        <div class="field">
+          <label>Target pH Level</label>
+          <input type="number" id="targetPH" step="0.1" value="7.4">
+        </div>
+      </section>
+    </div>
+
+    <div class="button-set">
+      <button onclick="calculateAll()" class="btn-primary">Generate Treatment Plan</button>
+      <button onclick="resetAll()" class="btn-secondary">Clear All</button>
+    </div>
+
+    <article id="resultBox" class="result-area" style="display:none;">
+      <div class="dosage-summary">
+        <div class="dose-item">
+          <span class="label">Chlorine Needed</span>
+          <div id="clResult" class="value">---</div>
+        </div>
+        <div class="dose-item divider"></div>
+        <div class="dose-item">
+          <span class="label">Muriatic Acid</span>
+          <div id="phResult" class="value">---</div>
+        </div>
+      </div>
+
+      <div class="sop-container">
+        <h3><i class="icon">📋</i> Official Treatment Procedure</h3>
+        <div id="procedureText"></div>
+      </div>
+    </article>
+
+    <aside class="utility-box">
+      <h4>Unit Converter (ML to Liters)</h4>
+      <div class="conv-row">
+        <input type="number" id="mlInput" placeholder="Enter ML" oninput="convertML()">
+        <span class="symbol">➔</span>
+        <input type="text" id="ltOutput" placeholder="Liters" readonly>
+      </div>
+    </aside>
+  </main>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

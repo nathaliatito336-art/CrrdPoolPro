@@ -1,0 +1,198 @@
+/* 1. Global Variables & Reset */
+:root {
+  --main-blue: #0984e3;
+  --main-green: #00b894;
+  --main-red: #d63031;
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --text-primary: #2d3436;
+  --text-secondary: #636e72;
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --border-radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* 2. Container Structure */
+.container {
+  width: 100%;
+  max-width: 800px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 40px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 20px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--main-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.pro-badge {
+  background: var(--main-blue);
+  color: white;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+
+/* 3. Input Styling */
+.input-block label, .field label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #dfe6e9;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+input:focus {
+  border-color: var(--main-blue);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(9, 132, 227, 0.1);
+}
+
+/* 4. Grid Layout */
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.config-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #edf2f7;
+}
+
+.card-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--main-blue);
+  margin-bottom: 15px;
+}
+
+.field-group { display: flex; gap: 10px; }
+
+/* 5. Buttons */
+.button-set {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.btn-primary {
+  flex: 2;
+  background: var(--main-blue);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary {
+  flex: 1;
+  background: #dfe6e9;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(9, 132, 227, 0.3); }
+
+/* 6. Results & SOP */
+.result-area {
+  background: #fff;
+  border: 2px solid var(--main-green);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  margin-top: 20px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.dosage-summary {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dose-item .label { font-size: 0.9rem; color: var(--text-secondary); }
+.dose-item .value { font-size: 1.8rem; font-weight: 900; color: var(--main-green); }
+.divider { height: 50px; width: 2px; background: #eee; }
+
+.sop-container h3 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.sop-step {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border-left: 4px solid var(--main-blue);
+}
+
+.sop-step strong { display: block; color: var(--main-blue); margin-bottom: 5px; }
+
+/* 7. Utilities */
+.utility-box {
+  margin-top: 40px;
+  background: #f1f2f6;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.conv-row { display: flex; align-items: center; gap: 15px; }
+.symbol { font-weight: bold; color: var(--main-blue); }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } }
+
+@media (max-width: 600px) {
+  .input-grid, .button-set { grid-template-columns: 1fr; flex-direction: column; }
+  .dosage-summary { flex-direction: column; gap: 20px; }
+  .divider { display: none; }
+}
